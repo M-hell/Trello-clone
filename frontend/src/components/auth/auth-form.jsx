@@ -74,6 +74,20 @@ export default function AuthForm({ mode, onSubmit, loading, errorMessage }) {
             </p>
           </div>
 
+          {mode === "login" ? (
+            <div className="mt-6 rounded-2xl border border-dashed border-orange-200 bg-orange-50 px-4 py-4 text-sm text-slate-700">
+              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-orange-600">Demo credentials</p>
+              <div className="mt-3 space-y-1">
+                <p>
+                  <span className="font-medium text-slate-900">Email:</span> samrat@gmail.com
+                </p>
+                <p>
+                  <span className="font-medium text-slate-900">Password:</span> 123123123
+                </p>
+              </div>
+            </div>
+          ) : null}
+
           <form className="mt-8 space-y-5" onSubmit={handleSubmit(onSubmit)}>
             {mode === "register" ? (
               <Field label="Full name" error={errors.name?.message}>
