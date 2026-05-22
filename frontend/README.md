@@ -34,3 +34,19 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## Run on a VM with Docker
+
+Build the image with the backend API URL baked in at build time:
+
+```bash
+docker build -t trello-frontend --build-arg NEXT_PUBLIC_API_URL=http://YOUR_BACKEND_HOST:8000 .
+```
+
+Run the container and expose port 3000:
+
+```bash
+docker run -d --name trello-frontend -p 3000:3000 trello-frontend
+```
+
+If the backend URL changes, rebuild the image with a new `NEXT_PUBLIC_API_URL` value.
